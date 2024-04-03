@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 //Unknow
 class CustomAuthController extends Controller
 {
-<<<<<<< HEAD
     public function index()
     {
         return view('auth.login');
@@ -31,8 +30,6 @@ class CustomAuthController extends Controller
 
         return redirect("login")->withErrors(['error' => 'Login details are not valid']);
     }
-=======
->>>>>>> the
 
     public function registration()
     {
@@ -45,11 +42,7 @@ class CustomAuthController extends Controller
             'name' => 'required|unique:users',
             'email' => 'required|email|unique:users', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
             'password' => 'required|min:6',
-<<<<<<< HEAD
             'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif','max:2048',
-=======
-            'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048',
->>>>>>> the
             'phone' => 'required|min:10', 'regex:/^\d{10}$/',
         ]);
 
@@ -61,19 +54,11 @@ class CustomAuthController extends Controller
 
     public function create(array $data)
     {
-<<<<<<< HEAD
         if(isset($data['image'])) {
             $file = $data['image'];
             $path = 'images/avatar';
             $fileName = $file->getClientOriginalName();
             $file->move($path, $fileName); 
-=======
-        if (isset($data['image'])) {
-            $file = $data['image'];
-            $path = 'images/avatar';
-            $fileName = $file->getClientOriginalName();
-            $file->move($path, $fileName);
->>>>>>> the
         } else {
             $fileName = 'avatar_defaul.jpg';
         }
@@ -85,7 +70,6 @@ class CustomAuthController extends Controller
             'password' => Hash::make($data['password'])
         ])->with('message', 'Người dùng đã được xóa thành công.');
     }
-<<<<<<< HEAD
 
     public function destroy($id)
     {
@@ -154,6 +138,4 @@ class CustomAuthController extends Controller
         $users = User::paginate(1);
         return view('auth.list', compact('users'));
     }
-=======
->>>>>>> the
 }
