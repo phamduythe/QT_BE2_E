@@ -27,4 +27,8 @@ Route::get('destroy/{id}', [CustomAuthController::class, 'destroy'])->name('dest
 Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('update');
 Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
 //view user
+<<<<<<< HEAD
 Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
+=======
+Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
+>>>>>>> khiem
