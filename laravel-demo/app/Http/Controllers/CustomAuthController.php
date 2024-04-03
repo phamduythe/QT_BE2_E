@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-=======
-use Illuminate\Support\Facades\Storage;
->>>>>>> khiem
 
 //Unknow
 class CustomAuthController extends Controller
@@ -98,10 +94,6 @@ class CustomAuthController extends Controller
             'name' => 'required',
             'phone' => 'required|min:10', 'regex:/^\d{10}$/',
             'password' => 'required|min:6',
-<<<<<<< HEAD
-=======
-            'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif','max:2048',
->>>>>>> khiem
         ]);
         $user = User::find($id);
         if (!$user) {
@@ -111,28 +103,8 @@ class CustomAuthController extends Controller
         $user->name = $request->input('name');
         $user->phone = $request->input('phone');
         $user->password = bcrypt($request->input('password'));
-<<<<<<< HEAD
         $user->save();
         return redirect("list")->withSuccess('You have signed-in');
-=======
-        if ($user->image) {
-            Storage::delete('images/avatar/' . $user->image);
-        }
-        if ($request->hasFile('image')) {
-            $avatarPath = $request->file('image');
-            $path = 'images/avatar';
-            $imageName = $avatarPath->getClientOriginalName();
-            $avatarPath->move($path, $imageName); 
-            $user->image = $request->file('image')->getClientOriginalName();
-            $user->save();
-        }
-        else {
-            $user->image = 'loi upload file';
-            $user->save();
-        }
-        return redirect("list")->with('success','You have signed-in');
-        
->>>>>>> khiem
     }
     public function view($id)
     {
