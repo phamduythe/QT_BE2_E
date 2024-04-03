@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,3 +29,13 @@ Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('u
 Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
 //view user
 Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
+=======
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//regis
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+//
+>>>>>>> the
