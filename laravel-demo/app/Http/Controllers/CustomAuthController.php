@@ -11,23 +11,6 @@ use Illuminate\Support\Facades\Auth;
 //Unknow
 class CustomAuthController extends Controller
 {
-<<<<<<< HEAD
-
-    public function customLogin(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
-            'password' => 'required|min:6',
-        ]);
-
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('list')->withSuccess('Signed in');
-        }
-
-        return redirect("login")->withErrors(['error' => 'Login details are not valid']);
-    }
-
     public function registration()
     {
         return view('auth.registration');
@@ -67,8 +50,6 @@ class CustomAuthController extends Controller
             'password' => Hash::make($data['password'])
         ])->with('message', 'Người dùng đã được xóa thành công.');
     }
-=======
->>>>>>> phat
 
     public function view($id)
     {
@@ -80,7 +61,6 @@ class CustomAuthController extends Controller
         return view('auth.profile', compact('userData'));
     }
 
-<<<<<<< HEAD
     public function dashboard()
     {
         if (Auth::check()) {
@@ -90,8 +70,6 @@ class CustomAuthController extends Controller
     }
 
 
-=======
->>>>>>> phat
     public function list()
     {
         $users = User::paginate(1);
