@@ -13,6 +13,7 @@ class CustomAuthController extends Controller
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public function index()
     {
@@ -35,6 +36,8 @@ class CustomAuthController extends Controller
     }
 
 >>>>>>> parent of 1112c84 (Merge branch 'the')
+=======
+>>>>>>> origin/master
     public function registration()
     {
         return view('auth.registration');
@@ -100,7 +103,6 @@ class CustomAuthController extends Controller
         $users = User::paginate(1);
         return view('auth.list', compact('users'));
     }
-=======
     
    
 =======
@@ -159,6 +161,7 @@ class CustomAuthController extends Controller
     }
 <<<<<<< HEAD
    
+<<<<<<< HEAD
 >>>>>>> khiem
 =======
 
@@ -176,4 +179,6 @@ class CustomAuthController extends Controller
         return view('auth.list', compact('users'));
     }
 >>>>>>> parent of 1112c84 (Merge branch 'the')
+=======
+>>>>>>> origin/master
 }
