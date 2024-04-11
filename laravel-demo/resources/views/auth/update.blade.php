@@ -61,7 +61,7 @@
                                     <div class="u-s-m-b-15">
                                         <button class="btn btn--e-transparent-brand-b-2" type="submit">UPDATE</button>
                                     </div>
-                                    <a class="gl-link" href="{{ url('/dashboard') }}">Return to  dasboard</a>
+                                    <a class="gl-link" href="{{ url('/dashboard') }}">Return to dasboard</a>
                                 </form>
 
                             </div>
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <!--====== End - Section Content ======-->  
+        <!--====== End - Section Content ======-->
     </div>
     <!--====== End - Section 2 ======-->
 </div>
