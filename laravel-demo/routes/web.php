@@ -12,6 +12,7 @@ Route::get('/', function () {
 //list user
 Route::get('list', [CustomAuthController::class, 'list'])->name('list.user');
 //view user
+<<<<<<< HEAD
 Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
 =======
 
@@ -22,3 +23,6 @@ Route::get('destroy/{id}', [CustomAuthController::class, 'destroy'])->name('dest
 Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('update');
 Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
 >>>>>>> khiem
+=======
+Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
+>>>>>>> parent of 1112c84 (Merge branch 'the')
