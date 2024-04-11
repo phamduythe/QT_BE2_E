@@ -11,33 +11,6 @@ use Illuminate\Support\Facades\Auth;
 //Unknow
 class CustomAuthController extends Controller
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    public function index()
-    {
-        return view('auth.login');
-    }
-
-    public function customLogin(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
-            'password' => 'required|min:6',
-        ]);
-
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('list')->withSuccess('Signed in');
-        }
-
-        return redirect("login")->withErrors(['error' => 'Login details are not valid']);
-    }
-
->>>>>>> parent of 1112c84 (Merge branch 'the')
-=======
->>>>>>> origin/master
     public function registration()
     {
         return view('auth.registration');
@@ -77,36 +50,6 @@ class CustomAuthController extends Controller
             'password' => Hash::make($data['password'])
         ])->with('message', 'Người dùng đã được xóa thành công.');
     }
-<<<<<<< HEAD
-
-    public function view($id)
-    {
-        $userData = User::find($id);
-
-        if (!$userData) {
-            view('auth.list');
-        }
-        return view('auth.profile', compact('userData'));
-    }
-
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return view('dashboard');
-        }
-        return redirect("login")->withSuccess('You are not allowed to access');
-    }
-
-
-    public function list()
-    {
-        $users = User::paginate(1);
-        return view('auth.list', compact('users'));
-    }
-    
-   
-=======
->>>>>>> parent of 1112c84 (Merge branch 'the')
 
     public function destroy($id)
     {
@@ -159,11 +102,6 @@ class CustomAuthController extends Controller
         return redirect("list")->with('success','You have signed-in');
         
     }
-<<<<<<< HEAD
-   
-<<<<<<< HEAD
->>>>>>> khiem
-=======
 
     public function signOut()
     {
@@ -178,7 +116,4 @@ class CustomAuthController extends Controller
         $users = User::paginate(1);
         return view('auth.list', compact('users'));
     }
->>>>>>> parent of 1112c84 (Merge branch 'the')
-=======
->>>>>>> origin/master
 }
