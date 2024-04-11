@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\Auth;
 //Unknow
 class CustomAuthController extends Controller
 {
-    public function index()
-    {
-        return view('auth.login');
-    }
 
     public function customLogin(Request $request)
     {
@@ -89,13 +85,6 @@ class CustomAuthController extends Controller
         return redirect("login")->withSuccess('You are not allowed to access');
     }
 
-    public function signOut()
-    {
-        Session::flush();
-        Auth::logout();
-
-        return Redirect('login');
-    }
 
     public function list()
     {
