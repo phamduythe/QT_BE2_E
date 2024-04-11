@@ -7,7 +7,7 @@ use App\Http\Controllers\CustomAuthController;
 //     return view('welcome');
 // });
 
-//regis
+//registration
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 //
