@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use App\Http\Controllers\Storage;
+=======
+>>>>>>> hung
 
 //Unknow
 class CustomAuthController extends Controller
 {
+<<<<<<< HEAD
     public function registration()
     {
         return view('auth.registration');
@@ -102,6 +106,35 @@ class CustomAuthController extends Controller
         }
         return redirect("list")->with('success','You have signed-in');
         
+=======
+    public function index()
+    {
+        return view('auth.login');
+    }
+
+    public function customLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+            'password' => 'required|min:6',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('list')->withSuccess('Signed in');
+        }
+
+        return redirect("login")->withErrors(['error' => 'Login details are not valid']);
+    }
+
+    public function dashboard()
+    {
+        if (Auth::check()) {
+            return view('dashboard');
+        }
+
+        return redirect("login")->withSuccess('You are not allowed to access');
+>>>>>>> hung
     }
 
     public function signOut()
@@ -111,10 +144,13 @@ class CustomAuthController extends Controller
 
         return Redirect('login');
     }
+<<<<<<< HEAD
 
     public function list()
     {
         $users = User::paginate(1);
         return view('auth.list', compact('users'));
     }
+=======
+>>>>>>> hung
 }
