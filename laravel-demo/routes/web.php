@@ -19,12 +19,5 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 //list user
 Route::get('list', [CustomAuthController::class, 'list'])->name('list.user');
-//add user
-Route::get('add-user', [CustomAuthController::class, 'create'])->name('add.user');
-//destroy user
-Route::get('destroy/{id}', [CustomAuthController::class, 'destroy'])->name('destroy');
-//update user
-Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('update');
-Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
 //view user
 Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
