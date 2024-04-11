@@ -1,5 +1,4 @@
 @extends('dashboard')
-
 @section('content')
 <div class="container">
     <h1 class="text-center mb-5" style="color: white;">User List</h1>
