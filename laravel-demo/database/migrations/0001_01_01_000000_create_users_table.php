@@ -12,6 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> the
             $table->id();
             $table->string('name');
             $table->bigInteger('phone');
@@ -21,6 +25,10 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+<<<<<<< HEAD
+=======
+            
+>>>>>>> the
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
