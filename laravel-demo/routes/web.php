@@ -7,6 +7,12 @@ use App\Http\Controllers\CustomAuthController;
     return view('welcome');
 });
 
+//log in
+Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
 //registration
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
@@ -20,7 +26,3 @@ Route::get('destroy/{id}', [CustomAuthController::class, 'destroy'])->name('dest
 Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('update');
 Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
 
-
-Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
