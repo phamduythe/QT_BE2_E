@@ -7,15 +7,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
 use App\Http\Controllers\Storage;
-=======
->>>>>>> the
 
 //Unknow
 class CustomAuthController extends Controller
 {
-<<<<<<< HEAD
     public function index()
     {
         return view('auth.login');
@@ -35,8 +31,6 @@ class CustomAuthController extends Controller
 
         return redirect("login")->withErrors(['error' => 'Login details are not valid']);
     }
-=======
->>>>>>> the
 
     public function registration()
     {
@@ -77,7 +71,6 @@ class CustomAuthController extends Controller
             'password' => Hash::make($data['password'])
         ])->with('message', 'Người dùng đã được xóa thành công.');
     }
-<<<<<<< HEAD
 
     public function destroy($id)
     {
@@ -153,7 +146,3 @@ class CustomAuthController extends Controller
         return view('auth.list', compact('users'));
     }
 }
-
-=======
-}
->>>>>>> the
