@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 //Unknow
 class CustomAuthController extends Controller
 {
-<<<<<<< HEAD
     public function registration()
     {
         return view('auth.registration');
@@ -76,7 +75,6 @@ class CustomAuthController extends Controller
         $users = User::paginate(1);
         return view('auth.list', compact('users'));
     }
-=======
     
    
 
@@ -132,5 +130,4 @@ class CustomAuthController extends Controller
         
     }
    
->>>>>>> khiem
 }
