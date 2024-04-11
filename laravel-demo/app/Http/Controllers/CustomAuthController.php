@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 //Unknow
 class CustomAuthController extends Controller
 {
+<<<<<<< HEAD
 
     public function customLogin(Request $request)
     {
@@ -66,6 +67,8 @@ class CustomAuthController extends Controller
             'password' => Hash::make($data['password'])
         ])->with('message', 'Người dùng đã được xóa thành công.');
     }
+=======
+>>>>>>> phat
 
     public function view($id)
     {
@@ -77,6 +80,7 @@ class CustomAuthController extends Controller
         return view('auth.profile', compact('userData'));
     }
 
+<<<<<<< HEAD
     public function dashboard()
     {
         if (Auth::check()) {
@@ -86,6 +90,8 @@ class CustomAuthController extends Controller
     }
 
 
+=======
+>>>>>>> phat
     public function list()
     {
         $users = User::paginate(1);
