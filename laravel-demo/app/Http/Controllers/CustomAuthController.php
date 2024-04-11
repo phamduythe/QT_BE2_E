@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\Storage;
 
 //Unknow
 class CustomAuthController extends Controller
@@ -43,7 +43,7 @@ class CustomAuthController extends Controller
             'name' => 'required|unique:users',
             'email' => 'required|email|unique:users', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
             'password' => 'required|min:6',
-            'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif','max:2048',
+            'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048',
             'phone' => 'required|min:10', 'regex:/^\d{10}$/',
         ]);
 
@@ -53,13 +53,14 @@ class CustomAuthController extends Controller
         return redirect("dashboard")->withSuccess('You have register!');
     }
 
+
     public function create(array $data)
     {
-        if(isset($data['image'])) {
+        if (isset($data['image'])) {
             $file = $data['image'];
             $path = 'images/avatar';
             $fileName = $file->getClientOriginalName();
-            $file->move($path, $fileName); 
+            $file->move($path, $fileName);
         } else {
             $fileName = 'avatar_defaul.jpg';
         }
@@ -95,7 +96,7 @@ class CustomAuthController extends Controller
             'name' => 'required',
             'phone' => 'required|min:10', 'regex:/^\d{10}$/',
             'password' => 'required|min:6',
-            'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif','max:2048',
+            'image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048',
         ]);
         $user = User::find($id);
         if (!$user) {
@@ -112,16 +113,15 @@ class CustomAuthController extends Controller
             $avatarPath = $request->file('image');
             $path = 'images/avatar';
             $imageName = $avatarPath->getClientOriginalName();
-            $avatarPath->move($path, $imageName); 
+            $avatarPath->move($path, $imageName);
             $user->image = $request->file('image')->getClientOriginalName();
             $user->save();
-        }
-        else {
+        } else {
             $user->image = 'loi upload file';
             $user->save();
         }
-        return redirect("list")->with('success','You have signed-in');
-    }  
+        return redirect("list")->with('success', 'You have signed-in');
+    }
 
     public function dashboard()
     {
@@ -146,4 +146,3 @@ class CustomAuthController extends Controller
         return view('auth.list', compact('users'));
     }
 }
-
