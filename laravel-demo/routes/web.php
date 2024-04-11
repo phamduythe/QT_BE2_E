@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +24,8 @@ Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->
 
 
 
+=======
+>>>>>>> parent of 1112c84 (Merge branch 'the')
 =======
 >>>>>>> parent of 1112c84 (Merge branch 'the')
 Route::get('/', function () {
@@ -51,5 +54,9 @@ Route::get('destroy/{id}', [CustomAuthController::class, 'destroy'])->name('dest
 Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('update');
 Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
 //view user
+<<<<<<< HEAD
+Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
+>>>>>>> parent of 1112c84 (Merge branch 'the')
+=======
 Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('viewprofie');
 >>>>>>> parent of 1112c84 (Merge branch 'the')

@@ -13,7 +13,10 @@ use App\Http\Controllers\Storage;
 class CustomAuthController extends Controller
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 1112c84 (Merge branch 'the')
     public function index()
     {
         return view('auth.login');
