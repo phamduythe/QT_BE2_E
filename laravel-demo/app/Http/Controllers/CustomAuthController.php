@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Storage;
 
 //Unknow
 class CustomAuthController extends Controller
