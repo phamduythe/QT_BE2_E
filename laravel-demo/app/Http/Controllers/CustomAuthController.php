@@ -7,15 +7,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
 use App\Http\Controllers\Storage;
-=======
->>>>>>> hung
 
 //Unknow
 class CustomAuthController extends Controller
 {
-<<<<<<< HEAD
     public function registration()
     {
         return view('auth.registration');
@@ -105,8 +101,7 @@ class CustomAuthController extends Controller
             $user->save();
         }
         return redirect("list")->with('success','You have signed-in');
-        
-=======
+    }   
     public function index()
     {
         return view('auth.login');
@@ -134,7 +129,6 @@ class CustomAuthController extends Controller
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
->>>>>>> hung
     }
 
     public function signOut()
@@ -144,13 +138,11 @@ class CustomAuthController extends Controller
 
         return Redirect('login');
     }
-<<<<<<< HEAD
 
     public function list()
     {
         $users = User::paginate(1);
         return view('auth.list', compact('users'));
     }
-=======
->>>>>>> hung
 }
+
