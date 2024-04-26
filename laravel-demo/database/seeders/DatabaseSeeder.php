@@ -20,19 +20,27 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        // DB::table('users')->insert([
+        //     'name'=>'admin1',
+        //     'phone' =>'0123456789',
+        //     'email' =>'admin1@gmail.com',
+        //     'image' =>'avatar_defaul.jpg',
+        //     'password' => Bcrypt('admin1'),
+        // ]);
+        // DB::table('users')->insert([
+        //     'name'=>'admin2',
+        //     'phone' =>'0123456789',
+        //     'email' =>'admin2@gmail.com',
+        //     'image' =>'avatar_defaul.jpg',
+        //     'password' => Bcrypt('admin2'),
+        // ]);
+
         DB::table('users')->insert([
-            'name'=>'admin1',
+            'name'=>'1',
             'phone' =>'0123456789',
-            'email' =>'admin1@gmail.com',
+            'email' =>'1@gmail.com',
             'image' =>'avatar_defaul.jpg',
             'password' => Bcrypt('admin1'),
-        ]);
-        DB::table('users')->insert([
-            'name'=>'admin2',
-            'phone' =>'0123456789',
-            'email' =>'admin2@gmail.com',
-            'image' =>'avatar_defaul.jpg',
-            'password' => Bcrypt('admin2'),
         ]);
     }
 }

@@ -20,10 +20,17 @@ class CustomAuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required|email', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+            'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
 
+        // $email = '1@gmail.com';
+        // $password = 'admin1';
+
+        // if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        //     return redirect()->intended('list')->withSuccess('Signed in');
+        // }
+        // 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('list')->withSuccess('Signed in');
