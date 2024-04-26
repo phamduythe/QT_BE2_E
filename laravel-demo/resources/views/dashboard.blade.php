@@ -70,6 +70,9 @@
                             <a class="nav-link" href="{{ route('register-user') }}">Add user</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('profile-user',$user->id) }}">Profile</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('signout') }}">Logout</a>
                         </li>
                         @endguest

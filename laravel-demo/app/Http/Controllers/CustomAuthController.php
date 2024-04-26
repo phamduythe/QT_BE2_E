@@ -17,6 +17,13 @@ class CustomAuthController extends Controller
         return view('auth.login');
     }
 
+    public function profileUser($id ,Request $request) {
+        $user_id = $request->get($id);
+        $user = User::find($user_id);
+        var_dump($user);
+        // return view('profile_user',  compact('user'));
+    }
+
     public function customLogin(Request $request)
     {
         $request->validate([
