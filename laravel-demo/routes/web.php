@@ -8,7 +8,7 @@ use App\Http\Controllers\CustomAuthController;
 });
 
 //profile 1 user
-Route::get('profile/id{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
+Route::get('profile/{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
 
 //log in
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');

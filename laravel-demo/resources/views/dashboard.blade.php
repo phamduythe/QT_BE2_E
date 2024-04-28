@@ -39,7 +39,6 @@
         text-align: center;
         color: #e3f2fd;
     }
-    
 </style>
 
 <body>
@@ -55,27 +54,32 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register-user') }}">Register</a>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('list.user') }}">List user</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register-user') }}">Add user</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile-user',$user->id) }}">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('signout') }}">Logout</a>
-                        </li>
-                        @endguest
+                        <ul class="navbar-nav">
+                            @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register-user') }}">Register</a>
+                            </li>
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('list.user') }}">List user</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register-user') }}">Add user</a>
+                            </li>
+                            @php
+                            $user = Auth::user();
+                            @endphp
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile-user', $user->id) }}">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('signout') }}">Logout</a>
+                            </li>
+                            @endguest
+                        </ul>
                     </ul>
                 </div>
             </div>
