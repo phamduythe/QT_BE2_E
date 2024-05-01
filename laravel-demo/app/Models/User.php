@@ -66,4 +66,13 @@ class User extends Authenticatable
     {
         return $this->hasOne(User_profile::class);
     }
+
+    /**
+     * Relationship
+     * @return HasMany
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany(Favorite::class, 'user_favorite');
+    }
 }

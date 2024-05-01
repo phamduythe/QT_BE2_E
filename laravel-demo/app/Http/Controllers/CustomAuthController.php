@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\Favorite;
+use App\Models\User_favorite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +22,31 @@ class CustomAuthController extends Controller
     public function profileUser($id)
     {
         $user = User::find($id);
-        return view('profile_user',  compact('user'));
+        // Lấy danh sách các sở thích của người dùng
+        $favorites = User_favorite::where('user_id', $id)->pluck('favorite_id')->toArray();
+        // Lấy tất cả các sở thích
+        $allFavorites = Favorite::all();
+
+        return view('profile_user', compact('user', 'favorites', 'allFavorites'));
+    }
+
+    public function addFavorites(Request $request)
+    {
+        $userId = $request->user_id;
+        $selectedFavorites = $request->favorites;
+
+        // Xóa các sở thích cũ của người dùng
+        User_favorite::where('user_id', $userId)->delete();
+
+        // Lưu các sở thích mới
+        foreach ($selectedFavorites as $favoriteId) {
+            User_favorite::create([
+                'user_id' => $userId,
+                'favorite_id' => $favoriteId
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Your favorites have been updated successfully.');
     }
 
     public function customLogin(Request $request)

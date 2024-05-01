@@ -14,33 +14,39 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         DB::table('users')->insert([
-            'name'=>'admin1',
-            'phone' =>'0123456789',
-            'email' =>'admin1@gmail.com',
-            'image' =>'avatar_defaul.jpg',
+            'name' => 'admin1',
+            'phone' => '0123456789',
+            'email' => 'admin1@gmail.com',
+            'image' => 'avatar_defaul.jpg',
             'password' => Bcrypt('admin1'),
         ]);
         DB::table('users')->insert([
-            'name'=>'admin2',
-            'phone' =>'0123456789',
-            'email' =>'admin2@gmail.com',
-            'image' =>'avatar_defaul.jpg',
+            'name' => 'admin2',
+            'phone' => '0123456789',
+            'email' => 'admin2@gmail.com',
+            'image' => 'avatar_defaul.jpg',
             'password' => Bcrypt('admin2'),
         ]);
 
-        // DB::table('users')->insert([
-        //     'name'=>'1',
-        //     'phone' =>'0123456789',
-        //     'email' =>'1@gmail.com',
-        //     'image' =>'avatar_defaul.jpg',
-        //     'password' => Bcrypt('admin1'),
-        // ]);
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Đá bóng',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Bóng rổ',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Cầu lông',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Cờ vua',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
     }
 }

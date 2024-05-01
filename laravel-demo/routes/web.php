@@ -1,14 +1,15 @@
-<?php
+    <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomAuthController;
+    use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\CustomAuthController;
 
- Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-//profile 1 user
-Route::get('profile/{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
+    //profile 1 user
+    Route::get('profile/{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
+    Route::post('addFavorites', [CustomAuthController::class, 'addFavorites'])->name('add-favorites');
 
 //log in
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');

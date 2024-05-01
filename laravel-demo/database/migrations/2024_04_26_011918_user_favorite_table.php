@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('user_favorite_id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('favorite_id')->constrained('favorites', 'favorite_id')->onDelete('cascade');
+            $table->timestamps();
         });        
     }
 

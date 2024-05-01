@@ -9,6 +9,8 @@ class User_favorite extends Model
 {
     use HasFactory;
 
+
+    protected $table = 'user_favorite';
     /**
      * The attributes that are mass assignable.
      *
