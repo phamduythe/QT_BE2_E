@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $now = now();
+
         DB::table('users')->insert([
             'name' => 'admin1',
             'phone' => '0123456789',
@@ -29,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'password' => Bcrypt('admin2'),
         ]);
 
+        //Favorites
         DB::table('favorites')->insert([
             'favorite_name' => 'Đá bóng',
             'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
@@ -47,6 +50,43 @@ class DatabaseSeeder extends Seeder
         DB::table('favorites')->insert([
             'favorite_name' => 'Cờ vua',
             'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Tennis',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Bóng chuyền',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        DB::table('favorites')->insert([
+            'favorite_name' => 'Bơi lội',
+            'favorite_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+        ]);
+
+        //Posts
+        DB::table('posts')->insert([
+            'post_name' => 'Java',
+            'post_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        DB::table('posts')->insert([
+            'post_name' => 'Font-end 2',
+            'post_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        DB::table('posts')->insert([
+            'post_name' => 'Python',
+            'post_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+            'created_at' => $now,
+            'updated_at' => $now,
         ]);
     }
 }

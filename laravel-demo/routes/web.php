@@ -1,15 +1,21 @@
-    <?php
+<?php
 
-    use Illuminate\Support\Facades\Route;
-    use App\Http\Controllers\CustomAuthController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\PostController;
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-    //profile 1 user
-    Route::get('profile/{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
-    Route::post('addFavorites', [CustomAuthController::class, 'addFavorites'])->name('add-favorites');
+//post
+Route::get('post', [PostController::class, 'index'])->name('post');
+
+
+//profile 1 user
+Route::get('profile/{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
+Route::get('profile/{id}', [CustomAuthController::class, 'profileUser'])->name('profile-user');
+Route::post('addFavorites', [CustomAuthController::class, 'addFavorites'])->name('add-favorites');
 
 //log in
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
@@ -19,7 +25,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 //registration
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 
 //list user
 Route::get('list', [CustomAuthController::class, 'list'])->name('list.user');
@@ -29,4 +35,3 @@ Route::get('viewprofie/id{id}', [CustomAuthController::class, 'view'])->name('vi
 Route::get('destroy/{id}', [CustomAuthController::class, 'destroy'])->name('destroy');
 Route::get('update-user/{id}', [CustomAuthController::class, 'update'])->name('update');
 Route::post('update-user/{id}', [CustomAuthController::class, 'customUpdate'])->name('update.custom');
-

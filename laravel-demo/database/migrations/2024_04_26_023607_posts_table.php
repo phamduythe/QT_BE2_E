@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('post_id');
             $table->string('post_name', 255);
             $table->text('post_description');
+            $table->timestamps();
         });
     }
 
