@@ -10,13 +10,13 @@ class Favorite extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['favorite_name', 'favorite_description'];
+    protected $fillable = ['favorite_id', 'favorite_name', 'favorite_description'];
 
     /**
      * Relationship
      * @return BelongsToMany
      */
-    public function user(): BelongsToMany
+    public function favorities(): BelongsToMany
     {
         return $this->belongsToMany(User_favorite::class);
     }

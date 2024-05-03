@@ -110,7 +110,7 @@ class CustomAuthController extends Controller
             'phone' => $data['phone'],
             'image' =>  $fileName,
             'password' => Hash::make($data['password'])
-        ])->with('message', 'Người dùng đã được xóa thành công.');
+        ])->with('message', 'Người dùng đã được tạo thành công.');
     }
 
     public function destroy($id)
@@ -118,8 +118,9 @@ class CustomAuthController extends Controller
         try {
             $user = User::find($id);
 
+
             // Kiểm tra xem người dùng có sở thích không
-            if ($user->favorites()->exists()) {
+            if ($user->favorities()->exists()) {
                 return redirect('list')->with('message', 'Người dùng có sở thích, không được xóa user này.');
             }
 
@@ -202,7 +203,7 @@ class CustomAuthController extends Controller
 
     public function list()
     {
-        $users = User::paginate(1);
+        $users = User::paginate(3);
         return view('auth.list', compact('users'));
     }
 }
