@@ -71,8 +71,8 @@ class User extends Authenticatable
      * Relationship
      * @return HasMany
      */
-    public function favorites()
+    public function favorites(): BelongsToMany
     {
-        return $this->belongsToMany(Favorite::class, 'user_favorite');
+        return $this->belongsToMany(User_favorite::class);
     }
 }

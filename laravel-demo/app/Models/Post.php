@@ -10,15 +10,15 @@ class Post extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'post_name',
-        'post_description',
-    ];
+        /**
+         * The attributes that are mass assignable.
+         *
+         * @var array<int, string>
+         */
+        protected $fillable = [
+            'post_name',
+            'post_description',
+        ];
 
     /**
      * Relationship

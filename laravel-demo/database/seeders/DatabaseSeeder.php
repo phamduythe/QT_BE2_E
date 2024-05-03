@@ -70,6 +70,7 @@ class DatabaseSeeder extends Seeder
         //Posts
         DB::table('posts')->insert([
             'post_name' => 'Java',
+            'user_id' => '1',
             'post_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
             'created_at' => $now,
             'updated_at' => $now,
@@ -77,6 +78,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('posts')->insert([
             'post_name' => 'Font-end 2',
+            'user_id' => '1',
             'post_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
             'created_at' => $now,
             'updated_at' => $now,
@@ -84,6 +86,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('posts')->insert([
             'post_name' => 'Python',
+            'user_id' => '1',
             'post_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
             'created_at' => $now,
             'updated_at' => $now,

@@ -655,7 +655,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
                     <div class="post-type post-img">
-                        <a href="#"><img src="{{ asset('images/avatar/avatar_defaul.jpg') }}" class="img-responsive" alt="image post"></a>
+                        <a href="#"><img src="{{ URL::asset('images/avatar')}}/{{ $post->user->image }}" class="img-responsive" alt="image post"></a>
                     </div>
                     <div class="author-info author-info-2">
                         <ul class="list-inline">
@@ -665,8 +665,8 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="info">
-                                    <p>Comments: <strong style="font-weight: bold;">127</strong></p>
+                                <div class="info ps-2">
+                                    <p>By: <strong style="font-weight: bold;">{{ $post->user->name }}</strong></p>
                                 </div>
                             </li>
                         </ul>

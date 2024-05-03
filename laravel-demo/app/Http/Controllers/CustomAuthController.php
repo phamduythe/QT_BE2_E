@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\Favorite;
 use App\Models\User_favorite;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -65,7 +66,7 @@ class CustomAuthController extends Controller
         // 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('list')->withSuccess('Signed in');
+            return redirect()->intended('list')->with('message', 'Đăng nhập thành công !');
         }
 
         return redirect("login")->withErrors(['error' => 'Login details are not valid']);
@@ -114,13 +115,27 @@ class CustomAuthController extends Controller
 
     public function destroy($id)
     {
-        $user = User::find($id);
-        if (!$user) {
-            return redirect("list")->with('message', 'Người dùng không tồn tại.');
-        }
+        try {
+            $user = User::find($id);
 
-        $user->delete();
-        return redirect("list")->with('message', 'Người dùng đã được xóa thành công.');
+            // Kiểm tra xem người dùng có sở thích không
+            if ($user->favorites()->exists()) {
+                return redirect('list')->with('message', 'Người dùng có sở thích, không được xóa user này.');
+            }
+
+            // Kiểm tra xem người dùng có bài viết không
+            if ($user->posts()->exists()) {
+                // Nếu có bài viết, không cho phép xóa người dùng
+                return redirect('list')->with('message', 'Người dùng có bài post, không được xóa user này.');
+            }
+
+            $user->delete();
+
+            return redirect("list")->with('message', 'Người dùng đã được xóa thành công.');
+        } catch (ModelNotFoundException $e) {
+            // Xử lý nếu không tìm thấy người dùng
+            return redirect("auth.login")->with('message', 'Không tìm thấy người dùng.');
+        }
     }
 
     public function update($id)
@@ -177,6 +192,12 @@ class CustomAuthController extends Controller
         Auth::logout();
 
         return Redirect('login');
+    }
+
+    public function view($id)
+    {
+        $userData = User::find($id);
+        return view('auth.profile', compact('userData'));
     }
 
     public function list()
